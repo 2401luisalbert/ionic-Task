@@ -27,7 +27,7 @@ export interface ActivityContextModel {
     activityType: ActivityType
   ) => void;
   completeActivity: (activityId: string) => void;
-  deleteActivity: (activityId:string) => boolean;
+  deleteActivity: (activityId:string) => void;
 }
 
 export interface ActivityListComponentProps {
