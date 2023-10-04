@@ -1,20 +1,21 @@
+import React, { useContext, useState } from "react";
 import {
   IonContent,
   IonPage,
   IonToast,
 } from "@ionic/react";
-import React, { useContext, useState } from "react";
 import HeaderComponent from "../../components/Globals/HeaderComponent";
 import { ActivitiesContextCreate } from "../../context/ActivitiesContextProvider";
 import { ActivityType } from "../../interfaces/interfaces";
-import ActivityForm from '../../components/AddActivity/ActivityForm'; // Importa el componente de formulario
+import ActivityForm from '../../components/AddActivity/ActivityForm';
 import { useHistory } from "react-router-dom";
 
+interface AddActivitiesProps {}
 
-const AddActivities: React.FC = () => {
+const AddActivities: React.FC<AddActivitiesProps> = () => {
   const history = useHistory();
   const activitiesCtxt = useContext(ActivitiesContextCreate);
-  const [isOpenToast, setIsOpenToast] = useState(false);
+  const [isOpenToast, setIsOpenToast] = useState<boolean>(false);
 
   const handleFormSubmit = (activityData: {
     activityType: ActivityType;
@@ -32,18 +33,18 @@ const AddActivities: React.FC = () => {
   };
 
   return (
-      <IonPage>
-        <HeaderComponent title="Add Activities" />
-        <IonContent>
-          <ActivityForm onSubmit={handleFormSubmit} />
-        </IonContent>
-        <IonToast
-          isOpen={isOpenToast}
-          message="Se agrego la actividad de manera correcta"
-          onDidDismiss={() => setIsOpenToast(false)}
-          duration={3000}
-        ></IonToast>
-      </IonPage>
+    <IonPage>
+      <HeaderComponent title="Add Activities" />
+      <IonContent>
+        <ActivityForm onSubmit={handleFormSubmit} />
+      </IonContent>
+      <IonToast
+        isOpen={isOpenToast}
+        message="Se agregó la actividad de manera correcta"
+        onDidDismiss={() => setIsOpenToast(false)}
+        duration={3000}
+      />
+    </IonPage>
   );
 };
 

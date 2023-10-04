@@ -12,7 +12,7 @@ const HeaderComponent: React.FC<HeaderComponentProps> = ({ title }) => {
   return (
     <IonHeader>
       <IonToolbar>
-        <IonButtons>
+        <IonButtons slot="start">
           <IonMenuButton />
         </IonButtons>
         <IonTitle>{title}</IonTitle>
