@@ -3,7 +3,7 @@ import React from "react";
 import { IonAlert } from "@ionic/react";
 import { EmptyFieldAlertProps } from "../../interfaces/interfaces";
 
-const EmptyFieldAlert: React.FC<EmptyFieldAlertProps> = ({ isOpen, onClose, header, message, buttons }) => {
+const AlertComponent: React.FC<EmptyFieldAlertProps> = ({ isOpen, onClose, header, message, buttons }) => {
   return (
     <IonAlert
       isOpen={isOpen}
@@ -15,4 +15,4 @@ const EmptyFieldAlert: React.FC<EmptyFieldAlertProps> = ({ isOpen, onClose, head
   );
 };
 
-export default EmptyFieldAlert;
+export default AlertComponent;

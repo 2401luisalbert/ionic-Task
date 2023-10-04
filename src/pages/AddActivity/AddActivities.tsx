@@ -6,7 +6,7 @@ import {
 import React, { useContext, useState } from "react";
 import HeaderComponent from "../../components/Globals/HeaderComponent";
 import { ActivitiesContextCreate } from "../../context/ActivitiesContextProvider";
-import {  ActivityType } from "../../interfaces/interfaces";
+import { ActivityType } from "../../interfaces/interfaces";
 import ActivityForm from '../../components/AddActivity/ActivityForm'; // Importa el componente de formulario
 import { useHistory } from "react-router-dom";
 

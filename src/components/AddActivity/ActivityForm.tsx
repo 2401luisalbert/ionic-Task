@@ -13,7 +13,7 @@ import {
   IonAlert,
 } from "@ionic/react";
 import { ActivityType, ActivityFormProps } from "../../interfaces/interfaces";
-import Alert from "../Globals/Alert";
+import AlertComponent from "../Globals/AlertComponent";
 
 const ActivityForm: React.FC<ActivityFormProps> = ({ onSubmit }) => {
   const [selectedSegment, setSelectedSegment] = useState("work");
@@ -104,7 +104,7 @@ const ActivityForm: React.FC<ActivityFormProps> = ({ onSubmit }) => {
           </IonButton>
         </IonCol>
       </IonRow>
-      <Alert
+      <AlertComponent
         isOpen={showAlert}
         onClose={() => setShowAlert(false)}
         header="Campos vacíos"
