@@ -6,10 +6,12 @@ import {
 } from "../interfaces/interfaces";
 import { activitiesData } from "../db/dbActivity";
 
+
 export const ActivitiesContextCreate = React.createContext<ActivityContextModel>({
   activities: [],
   addActivity: () => {},
   completeActivity: () => {},
+  deleteActivity: () => {}
 });
 
 const ActivitiesContextProvider = (props: any) => {
@@ -43,12 +45,7 @@ const ActivitiesContextProvider = (props: any) => {
       imageUrl,
       isComplete: false,
     };
-    
-    console.log("newActivity", newActivity)
-    
-   
-    
-  
+
     setActivities((currentActivities) => {
       return [...currentActivities, newActivity];
     });
@@ -69,10 +66,16 @@ const ActivitiesContextProvider = (props: any) => {
     });
   };
 
+  const deleteActivity = (activityId: string) =>{
+    const updatedActivities = activities.filter((activity) => activity.id !== activityId);
+    setActivities(updatedActivities);
+  }
+
   const activitiesContext: ActivityContextModel = {
     activities,
     addActivity,
     completeActivity,
+    deleteActivity
   };
 
   return (

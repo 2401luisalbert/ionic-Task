@@ -2,6 +2,21 @@
   width: 100%;
 }
 
-.noActivityMessage{
-  background-color: brown;
+.cardContainer {
+  width: 100%;
+  padding: 0;
+  position: relative;
+}
+
+.imageContainer {
+  width: 100%;
+  padding: 0;
+  position: relative;
+}
+
+.deleteIcon {
+  position: absolute;
+  top: 5px; 
+  right: 5px; 
+  font-size: 30px;
 }

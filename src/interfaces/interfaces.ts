@@ -27,6 +27,7 @@ export interface ActivityContextModel {
     activityType: ActivityType
   ) => void;
   completeActivity: (activityId: string) => void;
+  deleteActivity: (activityId:string) => boolean;
 }
 
 export interface ActivityListComponentProps {
@@ -48,4 +49,9 @@ export interface EmptyFieldAlertProps {
   header: string;
   message:string;
   buttons:string
+}
+
+export interface CompleteModalProps{
+  activity: Activity,
+  dismissModal: () => void
 }
