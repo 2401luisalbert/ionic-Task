@@ -6,9 +6,9 @@ import {
   IonTitle,
   IonToolbar,
 } from "@ionic/react";
-import { HeaderComponentProps } from "../../interfaces/interfaces";
+import { IHeaderComponentProps } from "../../interfaces/interfaces";
 
-const HeaderComponent: React.FC<HeaderComponentProps> = ({ title }) => {
+const HeaderComponent: React.FC<IHeaderComponentProps> = ({ title }) => {
   return (
     <IonHeader>
       <IonToolbar>

@@ -1,7 +1,7 @@
 import React, { useContext, useState } from "react";
 import {
-  Activity,
-  ActivityListComponentProps,
+  IActivity,
+  IActivityListComponentProps,
 } from "../../interfaces/interfaces";
 import {
   IonCard,
@@ -22,13 +22,14 @@ import ModalCompleteComponent from "../Globals/ModalCompleteComponent";
 import { checkmarkCircle, trashSharp } from "ionicons/icons";
 import { ActivitiesContextCreate } from "../../context/ActivitiesContextProvider";
 
-const ActivityListComponent: React.FC<ActivityListComponentProps> = ({
+const ActivityListComponent: React.FC<IActivityListComponentProps> = ({
   activity,
 }) => {
-  const [activityToComplete, setActivityToComplete] = useState<Activity>();
+  console.log("activity", activity)
+  const [activityToComplete, setActivityToComplete] = useState<IActivity>();
   const activityCtxt = useContext(ActivitiesContextCreate);
 
-  const handleOpenModal = (activity: Activity) => {
+  const handleOpenModal = (activity: IActivity) => {
     setActivityToComplete(activity);
   };
 
@@ -47,7 +48,7 @@ const ActivityListComponent: React.FC<ActivityListComponentProps> = ({
         onIonModalDidDismiss={handleModalDismiss}
       >
         <ModalCompleteComponent
-          activity={activityToComplete as Activity}
+          activity={activityToComplete as IActivity}
           dismissModal={handleModalDismiss}
         />
       </IonModal>
@@ -65,11 +66,11 @@ const ActivityListComponent: React.FC<ActivityListComponentProps> = ({
           ) : null}
         </div>
         <IonCardHeader>
-          <IonCardSubtitle>{activity.title}</IonCardSubtitle>
-          <IonCardTitle>{activity.hour}</IonCardTitle>
+          <IonCardSubtitle>{activity.description}</IonCardSubtitle>
+          <IonCardTitle>{activity.title}</IonCardTitle>
         </IonCardHeader>
         <IonCardContent>
-          <IonText>{activity.description}</IonText>
+          <IonText>{activity.hour}</IonText>
           <IonItem lines="none" className="fullWidth">
             {!activity.isComplete ? (
               <IonButton

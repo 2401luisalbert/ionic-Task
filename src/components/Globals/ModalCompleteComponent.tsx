@@ -8,10 +8,10 @@ import {
   IonText,
 } from "@ionic/react";
 import React, { useContext } from "react";
-import { CompleteModalProps } from "../../interfaces/interfaces";
+import { ICompleteModalProps } from "../../interfaces/interfaces";
 import { ActivitiesContextCreate } from "../../context/ActivitiesContextProvider";
 
-const ModalCompleteComponent: React.FC<CompleteModalProps> = (props) => {
+const ModalCompleteComponent: React.FC<ICompleteModalProps> = (props) => {
   const activityCtxt = useContext(ActivitiesContextCreate);
 
   const confirmComplete = (activityId: string) => {

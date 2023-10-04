@@ -1,11 +1,5 @@
-import {
-  IonContent,
-  IonGrid,
-  IonModal,
-  IonPage,
-  IonText,
-} from "@ionic/react";
-import React, { useContext, useState } from "react";
+import { IonContent, IonGrid, IonPage, IonText } from "@ionic/react";
+import React, { useContext } from "react";
 import HeaderComponent from "../../components/Globals/HeaderComponent";
 import { ActivitiesContextCreate } from "../../context/ActivitiesContextProvider";
 import ActivityListComponent from "../../components/AllActivities/ActivityListComponent";
@@ -19,9 +13,9 @@ const AllActivities: React.FC = () => {
       <IonContent>
         <IonGrid>
           {AllActivitiesCtxt.activities.length === 0 ? (
-           <IonText color="medium">
-            <i>No hay actividades</i>
-           </IonText>
+            <IonText color="medium">
+              <i>No hay actividades</i>
+            </IonText>
           ) : (
             AllActivitiesCtxt.activities.map((activity) => (
               <ActivityListComponent key={activity.id} activity={activity} />

@@ -6,7 +6,7 @@ import {
 } from "@ionic/react";
 import HeaderComponent from "../../components/Globals/HeaderComponent";
 import { ActivitiesContextCreate } from "../../context/ActivitiesContextProvider";
-import { ActivityType } from "../../interfaces/interfaces";
+import { IActivityType } from "../../interfaces/interfaces";
 import ActivityForm from '../../components/AddActivity/ActivityForm';
 import { useHistory } from "react-router-dom";
 
@@ -18,7 +18,7 @@ const AddActivities: React.FC<AddActivitiesProps> = () => {
   const [isOpenToast, setIsOpenToast] = useState<boolean>(false);
 
   const handleFormSubmit = (activityData: {
-    activityType: ActivityType;
+    activityType: IActivityType;
     title: string;
     description: string;
     hour: string;

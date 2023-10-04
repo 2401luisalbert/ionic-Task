@@ -1,6 +1,5 @@
 import React from "react";
 import {
-  IonButtons,
   IonContent,
   IonHeader,
   IonIcon,
@@ -8,15 +7,14 @@ import {
   IonLabel,
   IonList,
   IonMenu,
-  IonMenuButton,
   IonMenuToggle,
   IonTitle,
   IonToolbar,
 } from "@ionic/react";
 import { bodyOutline, newspaperOutline } from "ionicons/icons";
-import { NavBarComponentId } from "../../interfaces/interfaces";
+import { INavBarComponentId } from "../../interfaces/interfaces";
 
-const NavBarComponent: React.FC<NavBarComponentId> = ({navId}) => {
+const NavBarComponent: React.FC<INavBarComponentId> = ({navId}) => {
   return (
     <IonMenu contentId={navId}>
       <IonHeader>

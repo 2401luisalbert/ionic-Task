@@ -1,13 +1,13 @@
 import React, { useState } from "react";
 import {
-  Activity,
-  ActivityContextModel,
-  ActivityType,
+  IActivity,
+  IActivityContextModel,
+  IActivityType,
 } from "../interfaces/interfaces";
 import { activitiesData } from "../db/dbActivity";
 
 
-export const ActivitiesContextCreate = React.createContext<ActivityContextModel>({
+export const ActivitiesContextCreate = React.createContext<IActivityContextModel>({
   activities: [],
   addActivity: () => {},
   completeActivity: () => {},
@@ -15,13 +15,13 @@ export const ActivitiesContextCreate = React.createContext<ActivityContextModel>
 });
 
 const ActivitiesContextProvider = (props: any) => {
-  const [activities, setActivities] = useState<Activity[]>(activitiesData);
+  const [activities, setActivities] = useState<IActivity[]>(activitiesData);
 
   const addActivity = (
     title: string,
     description: string,
     hour: string,
-    activityType: ActivityType
+    activityType: IActivityType
   ) => {
     let imageUrl = "";
     switch (activityType) {
@@ -36,7 +36,7 @@ const ActivitiesContextProvider = (props: any) => {
         break;
     }
 
-    const newActivity: Activity = {
+    const newActivity: IActivity = {
       id: Math.random().toString(),
       title,
       description,
@@ -45,6 +45,7 @@ const ActivitiesContextProvider = (props: any) => {
       imageUrl,
       isComplete: false,
     };
+  
 
     setActivities((currentActivities) => {
       return [...currentActivities, newActivity];
@@ -71,7 +72,7 @@ const ActivitiesContextProvider = (props: any) => {
     setActivities(updatedActivities);
   }
 
-  const activitiesContext: ActivityContextModel = {
+  const activitiesContext: IActivityContextModel = {
     activities,
     addActivity,
     completeActivity,

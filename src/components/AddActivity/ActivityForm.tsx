@@ -10,12 +10,11 @@ import {
   IonRow,
   IonSegment,
   IonSegmentButton,
-  IonAlert,
 } from "@ionic/react";
-import { ActivityType, ActivityFormProps } from "../../interfaces/interfaces";
+import { IActivityType, IActivityFormProps } from "../../interfaces/interfaces";
 import AlertComponent from "../Globals/AlertComponent";
 
-const ActivityForm: React.FC<ActivityFormProps> = ({ onSubmit }) => {
+const ActivityForm: React.FC<IActivityFormProps> = ({ onSubmit }) => {
   const [selectedSegment, setSelectedSegment] = useState("work");
   const [showAlert, setShowAlert] = useState(false);
 
@@ -25,7 +24,7 @@ const ActivityForm: React.FC<ActivityFormProps> = ({ onSubmit }) => {
   const hourInput = useRef<HTMLIonDatetimeElement>(null);
 
   const handleAddActivity = () => {
-    const activityType = selectedSegment as ActivityType;
+    const activityType = selectedSegment as IActivityType;
     const title = titleInput.current?.value as string;
     const description = descriptionInput.current?.value as string;
     const selectedHour = hourInput.current?.value as string;
@@ -33,13 +32,13 @@ const ActivityForm: React.FC<ActivityFormProps> = ({ onSubmit }) => {
 
     if (activityType && title && description && hour) {
       onSubmit({
-        activityType,
         title,
         description,
         hour,
+        activityType, 
       });
     } else {
-      setShowAlert(true); // Mostrar el alert si falta algún campo
+      setShowAlert(true);
     }
   };
 
